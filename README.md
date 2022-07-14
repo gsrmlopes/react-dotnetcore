@@ -12,9 +12,13 @@
  # Como clonar o app no caso de divergências de versão (caso 1)
  clone os arquivos:
  >Src/App.css
+
  >Src/App.js
+ 
  >Src/index.css
+ 
  >Src/index.js
+ 
  >Src/components/*
 #### verifique se o awesomeFont ainda se importa como foi feito no index.css(jogue no google que aparece)
 #### verifique se as dependências estão instaladas:
