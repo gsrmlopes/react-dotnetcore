@@ -23,4 +23,5 @@
 #### verifique se o awesomeFont ainda se importa como foi feito no index.css(jogue no google que aparece)
 #### verifique se as dependências estão instaladas:
 >Bootstrap
+
 >React Bootstrap

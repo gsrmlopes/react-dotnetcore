@@ -1,0 +1,2 @@
+no caso do swagger não rederecionar automáticamente o link é esse:
+https://localhost:7083/swagger/index.html
