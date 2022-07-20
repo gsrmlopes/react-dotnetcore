@@ -2,15 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProAtividade.Api.Models;
 
 namespace ProAtividade.API.Models
 {
     public class Atividade
     {
         public int id { get; set; }
-        public string Titulo { get; set; }
-        public string Descricao { get; set; }
-        public string Prioridade { get; set; }
+        public string titulo { get; set; }
+        public string descricao { get; set; }
+        public Prioridade prioridade { get; set; }
         public Atividade() {
             
         }

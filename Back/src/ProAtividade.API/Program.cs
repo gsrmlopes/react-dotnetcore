@@ -1,14 +1,25 @@
+using System.Text.Json.Serialization;
+using Microsoft.EntityFrameworkCore;
+using ProAtividade.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddDbContext<DataContext>(
+                options => options.UseSqlite(builder.Configuration.GetConnectionString("Default"))
+                );
+
+
+
+builder.Services.AddControllers().AddJsonOptions(options => {
+    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<DataContext>(
-                options => options.UseSqlite(Configuration.GetConnectionString("Default"))
-            );
+
+            
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
