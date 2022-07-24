@@ -14,7 +14,18 @@ function App() {
     const [atividade, setAtividade] = useState({ id: 0 });
 
     const handleStateModal = () => setStateModal(!showAtividadeModal);
-    const handleConfirmModal = () => setConfirmModal(!smShowConfirmModal);
+    const handleConfirmModal = (id) => {
+
+         if(id !== 0 && id !== undefined){
+          const atividade = atividades.filter((atividade) => atividade.id === id);
+          setAtividade(atividade[0]);
+     }
+     else{
+      setAtividade({id:0});
+     }
+      setConfirmModal(!smShowConfirmModal);
+
+    }
  
     
     const pegaTodasAtividades = async () => {
@@ -53,6 +64,7 @@ function App() {
   }
 
   const deletarAtividade= async (id) => {
+    handleConfirmModal(0);
     if(await api.delete(`atividade/${id}`)){
         
     const atividadesFiltradas = atividades.filter(
@@ -60,7 +72,7 @@ function App() {
     );
     setAtividades([...atividadesFiltradas]);
     }
-    
+    handleConfirmModal();
   }
 
   const pegarAtividade= (id) => {
@@ -123,7 +135,7 @@ function App() {
                 Sim
             </button>
             <button className='btn btn-outline-danger me-2'
-            onClick={()=> handleConfirmModal()}>
+            onClick={()=> handleConfirmModal(0)}>
             <i className='fas fa-times me-2'></i>
                 Não
             </button>
